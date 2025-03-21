@@ -1,21 +1,9 @@
 import './App.css'
 
-import { Button, Space } from 'antd'
-import { useState } from 'react'
+import { RouterProvider } from 'react-router-dom'
+
+import { router } from './routes.tsx'
 
 export function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div style={{ padding: '0 24px' }}>
-        <Space>
-          <Button type="primary" onClick={() => setCount((count) => count + 1)}>
-            +1
-          </Button>
-          <p>count is {count}</p>
-        </Space>
-      </div>
-    </>
-  )
+  return <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
 }
