@@ -1,0 +1,5 @@
+@reference "../index.css";
+
+.container {
+    @apply h-screen p-4 bg-white dark:bg-gray-800;
+}

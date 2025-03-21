@@ -1,0 +1,27 @@
+@reference "../index.css";
+
+.title {
+    @apply text-2xl font-extrabold dark:text-white;
+    margin-bottom: 20px;
+}
+.list {
+    @apply max-w-md divide-y divide-gray-200 dark:divide-gray-700;
+}
+.listItem {
+    @apply py-3 sm:py-4;
+}
+.listItem__container {
+    @apply flex items-center space-x-4 rtl:space-x-reverse;
+}
+.listItem__main {
+    @apply flex-1 min-w-0;
+}
+.listItem__title {
+    @apply text-sm font-medium text-gray-900 truncate dark:text-white;
+}
+.listItem__date {
+    @apply text-sm text-gray-500 truncate dark:text-gray-400;
+}
+.listItem__amount {
+    @apply inline-flex items-center text-base font-semibold text-gray-900 dark:text-white;
+}
