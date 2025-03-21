@@ -1,5 +1,6 @@
 import { Table, TableProps } from 'antd'
 import Title from 'antd/es/typography/Title'
+import { format } from 'date-fns'
 import { useLoaderData } from 'react-router-dom'
 
 import { expenses } from '../data/demo-expenses.ts'
@@ -13,6 +14,12 @@ export function ExpenseList() {
       title: 'ID',
       dataIndex: 'id',
       key: 'id',
+    },
+    {
+      title: 'Date',
+      dataIndex: 'date',
+      key: 'date',
+      render: (_, { date }) => <>{format(date, 'MMMM do y')}</>,
     },
     {
       title: 'Title',
