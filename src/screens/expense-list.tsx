@@ -10,20 +10,24 @@ export function ExpenseList() {
   const data = useLoaderData() as { expenses: Expense[] }
   return (
     <>
-      <h2 className={styles.title}>Expense List</h2>
-      <ul className={styles.list}>
-        {data.expenses.map((expense) => (
-          <li key={expense.id} className={styles.listItem}>
-            <div className={styles.listItem__container}>
-              <div className={styles.listItem__main}>
-                <p className={styles.listItem__title}>{expense.title}</p>
-                <p className={styles.listItem__date}>{format(expense.date, 'MMMM do y')}</p>
+      <header>
+        <h2 className={styles.title}>Expense List</h2>
+      </header>
+      <main>
+        <ul className={styles.list}>
+          {data.expenses.map((expense) => (
+            <li key={expense.id} className={styles.listItem}>
+              <div className={styles.listItem__container}>
+                <div className={styles.listItem__main}>
+                  <p className={styles.listItem__title}>{expense.title}</p>
+                  <p className={styles.listItem__date}>{format(expense.date, 'MMMM do y')}</p>
+                </div>
+                <div className={styles.listItem__amount}>EUR {expense.amount.toFixed(2)}</div>
               </div>
-              <div className={styles.listItem__amount}>EUR {expense.amount.toFixed(2)}</div>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      </main>
     </>
   )
 }
