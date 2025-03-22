@@ -1,7 +1,7 @@
 import styles from './expense-list.module.css'
 
 import { format } from 'date-fns'
-import { useLoaderData } from 'react-router-dom'
+import { NavLink, useLoaderData } from 'react-router-dom'
 
 import { expenses } from '../data/demo-expenses.ts'
 import { Expense } from '../model/expense.ts'
@@ -12,6 +12,9 @@ export function ExpenseList() {
     <>
       <header>
         <h2 className={styles.title}>Expense List</h2>
+        <NavLink to="new" className={styles.addLink}>
+          Add Expense
+        </NavLink>
       </header>
       <main>
         <ul className={styles.list}>

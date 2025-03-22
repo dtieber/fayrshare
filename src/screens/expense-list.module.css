@@ -25,3 +25,6 @@
 .listItem__amount {
     @apply inline-flex items-center text-base font-semibold text-gray-900 dark:text-white;
 }
+.addLink{
+    @apply font-medium text-gray-800 dark:text-white hover:underline
+}
