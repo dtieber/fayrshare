@@ -3,6 +3,8 @@ import styles from './expense-form.module.css'
 import { format, isValid } from 'date-fns'
 import { FormEvent, useState } from 'react'
 
+import { Expense } from '../model/expense.ts'
+
 export type ExpenseFormData = {
   title: string
   amount: number
@@ -10,13 +12,14 @@ export type ExpenseFormData = {
 }
 
 export type ExpenseFormProps = {
+  expense?: Expense
   onSubmit: (data: ExpenseFormData) => void
 }
 
-export function ExpenseForm({ onSubmit }: ExpenseFormProps) {
-  const [title, setTitle] = useState<string>('')
-  const [amount, setAmount] = useState<string>('')
-  const [date, setDate] = useState<Date>(new Date())
+export function ExpenseForm({ expense, onSubmit }: ExpenseFormProps) {
+  const [title, setTitle] = useState<string>(expense?.title || '')
+  const [amount, setAmount] = useState<string>(expense?.amount.toFixed(2) || '')
+  const [date, setDate] = useState<Date>(expense?.date || new Date())
 
   const [titleValid, setTitleValid] = useState(true)
   const [amountValid, setAmountValid] = useState(true)
