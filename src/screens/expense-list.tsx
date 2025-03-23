@@ -22,7 +22,9 @@ export function ExpenseList() {
             <li key={expense.id} className={styles.listItem}>
               <div className={styles.listItem__container}>
                 <div className={styles.listItem__main}>
-                  <p className={styles.listItem__title}>{expense.title}</p>
+                  <p className={styles.listItem__title}>
+                    <NavLink to={expense.id.toString()}>{expense.title}</NavLink>
+                  </p>
                   <p className={styles.listItem__date}>{format(expense.date, 'MMMM do y')}</p>
                 </div>
                 <div className={styles.listItem__amount}>EUR {expense.amount.toFixed(2)}</div>
