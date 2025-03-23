@@ -1,13 +1,13 @@
 import styles from './expense-list.module.css'
 
 import { format } from 'date-fns'
-import { NavLink, useLoaderData } from 'react-router-dom'
+import { NavLink, useRouteLoaderData } from 'react-router-dom'
 
 import { expenses } from '../data/demo-expenses.ts'
 import { Expense } from '../model/expense.ts'
 
 export function ExpenseList() {
-  const data = useLoaderData() as { expenses: Expense[] }
+  const data = useRouteLoaderData('expenses') as { expenses: Expense[] }
   return (
     <>
       <header>

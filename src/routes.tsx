@@ -8,11 +8,12 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: <ExpenseRoot />,
+    loader: expenseListLoader,
+    id: 'expenses',
     children: [
       {
         index: true,
         element: <ExpenseList />,
-        loader: expenseListLoader,
       },
       {
         path: 'new',
