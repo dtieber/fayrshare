@@ -32,6 +32,9 @@ export function ExpenseList() {
             </li>
           ))}
         </ul>
+        <NavLink to="/" className={styles.backLink}>
+          Back
+        </NavLink>
       </PageContent>
     </>
   )

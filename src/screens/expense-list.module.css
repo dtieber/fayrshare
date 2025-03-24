@@ -24,3 +24,6 @@
 .addLink{
     @apply font-medium text-gray-800 dark:text-white hover:underline
 }
+.backLink{
+    @apply font-medium text-gray-800 dark:text-white hover:underline
+}
