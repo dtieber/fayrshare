@@ -1,3 +1,4 @@
+import { ExpenseGroup } from '../model/expense-group.ts'
 import { Expense } from '../model/expense.ts'
 
 export const expense1: Expense = {
@@ -22,3 +23,17 @@ export const expense3: Expense = {
 }
 
 export const expenses: Expense[] = [expense1, expense2, expense3]
+
+export const expenseGroup1 = {
+  id: 1,
+  name: 'Vacation in Vancouver',
+  expenses,
+}
+
+export const expenseGroup2 = {
+  id: 2,
+  name: 'Upcoming trip to Sicily',
+  expenses: [],
+}
+
+export const expenseGroups: ExpenseGroup[] = [expenseGroup1, expenseGroup2]
