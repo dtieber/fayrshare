@@ -1,11 +1,11 @@
-import styles from './expense-root.module.css'
-
 import { Outlet } from 'react-router-dom'
+
+import { PageContainer } from '../components/page-container.tsx'
 
 export function ExpenseRoot() {
   return (
-    <div className={styles.container}>
+    <PageContainer>
       <Outlet />
-    </div>
+    </PageContainer>
   )
 }
