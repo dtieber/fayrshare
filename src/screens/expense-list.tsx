@@ -5,14 +5,13 @@ import { NavLink, useRouteLoaderData } from 'react-router-dom'
 
 import { PageContent } from '../components/page-content.tsx'
 import { PageHeader } from '../components/page-header.tsx'
-import { expenses } from '../data/demo-data.ts'
-import { Expense } from '../model/expense.ts'
+import { ExpenseGroup } from '../model/expense-group.ts'
 
 export function ExpenseList() {
-  const data = useRouteLoaderData('expenses') as { expenses: Expense[] }
+  const data = useRouteLoaderData('expenses') as ExpenseGroup
   return (
     <>
-      <PageHeader title="Expense List">
+      <PageHeader title={data.name}>
         <NavLink to="new" className={styles.addLink}>
           Add Expense
         </NavLink>
@@ -37,5 +36,3 @@ export function ExpenseList() {
     </>
   )
 }
-
-export const expenseListLoader = () => ({ expenses })

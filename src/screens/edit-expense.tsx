@@ -3,8 +3,7 @@ import { useNavigate, useParams, useRouteLoaderData } from 'react-router-dom'
 import { ExpenseForm, ExpenseFormData } from '../components/expense-form.tsx'
 import { PageContent } from '../components/page-content.tsx'
 import { PageHeader } from '../components/page-header.tsx'
-import { expenses } from '../data/demo-data.ts'
-import { Expense } from '../model/expense.ts'
+import { ExpenseGroup } from '../model/expense-group.ts'
 
 export function EditExpense() {
   const navigate = useNavigate()
@@ -12,19 +11,19 @@ export function EditExpense() {
   const { id } = useParams() as { id: string }
   const expenseId = parseFloat(id)
 
-  const data = useRouteLoaderData('expenses') as { expenses: Expense[] }
-  const expense = data.expenses.find((e) => e.id == expenseId)
+  const expenseGroup = useRouteLoaderData('expenses') as ExpenseGroup
+  const expense = expenseGroup.expenses.find((e) => e.id == expenseId)
 
   if (!expense) {
     return <p>Error. Expense not found</p>
   }
 
   function handleSubmit(data: ExpenseFormData) {
-    const pos = expenses.map((e) => e.id).indexOf(expenseId)
-    expenses.splice(pos, 1)
-    expenses.push({ ...data, id: expenseId })
+    const pos = expenseGroup.expenses.map((e) => e.id).indexOf(expenseId)
+    expenseGroup.expenses.splice(pos, 1)
+    expenseGroup.expenses.push({ ...data, id: expenseId })
 
-    navigate('/')
+    navigate(`/${expenseGroup.id}`)
   }
 
   return (

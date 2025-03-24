@@ -1,15 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom'
 
+import { expenseGroupLoader } from './loader/expense-group-loader.ts'
 import { AddExpense } from './screens/add-expense.tsx'
 import { EditExpense } from './screens/edit-expense.tsx'
-import { ExpenseList, expenseListLoader } from './screens/expense-list.tsx'
+import { ExpenseList } from './screens/expense-list.tsx'
 import { Root } from './screens/root.tsx'
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/:groupId',
     element: <Root />,
-    loader: expenseListLoader,
+    loader: expenseGroupLoader,
     id: 'expenses',
     children: [
       {
