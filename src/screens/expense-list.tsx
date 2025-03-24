@@ -3,6 +3,7 @@ import styles from './expense-list.module.css'
 import { format } from 'date-fns'
 import { NavLink, useRouteLoaderData } from 'react-router-dom'
 
+import { PageContent } from '../components/page-content.tsx'
 import { PageHeader } from '../components/page-header.tsx'
 import { expenses } from '../data/demo-expenses.ts'
 import { Expense } from '../model/expense.ts'
@@ -16,7 +17,7 @@ export function ExpenseList() {
           Add Expense
         </NavLink>
       </PageHeader>
-      <main>
+      <PageContent>
         <ul className={styles.list}>
           {data.expenses.map((expense) => (
             <li key={expense.id} className={styles.listItem}>
@@ -32,7 +33,7 @@ export function ExpenseList() {
             </li>
           ))}
         </ul>
-      </main>
+      </PageContent>
     </>
   )
 }

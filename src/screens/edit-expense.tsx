@@ -1,6 +1,7 @@
 import { useNavigate, useParams, useRouteLoaderData } from 'react-router-dom'
 
 import { ExpenseForm, ExpenseFormData } from '../components/expense-form.tsx'
+import { PageContent } from '../components/page-content.tsx'
 import { PageHeader } from '../components/page-header.tsx'
 import { expenses } from '../data/demo-expenses.ts'
 import { Expense } from '../model/expense.ts'
@@ -29,9 +30,9 @@ export function EditExpense() {
   return (
     <>
       <PageHeader title={`Edit Expense (${expense.id})`} />
-      <main>
+      <PageContent>
         <ExpenseForm expense={expense} onSubmit={handleSubmit} />
-      </main>
+      </PageContent>
     </>
   )
 }
