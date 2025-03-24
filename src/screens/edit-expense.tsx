@@ -3,7 +3,7 @@ import { useNavigate, useParams, useRouteLoaderData } from 'react-router-dom'
 import { ExpenseForm, ExpenseFormData } from '../components/expense-form.tsx'
 import { PageContent } from '../components/page-content.tsx'
 import { PageHeader } from '../components/page-header.tsx'
-import { expenses } from '../data/demo-expenses.ts'
+import { expenses } from '../data/demo-data.ts'
 import { Expense } from '../model/expense.ts'
 
 export function EditExpense() {
