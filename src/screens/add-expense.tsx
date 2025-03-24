@@ -1,8 +1,7 @@
-import styles from './add-expense.module.css'
-
 import { useNavigate } from 'react-router-dom'
 
 import { ExpenseForm, ExpenseFormData } from '../components/expense-form.tsx'
+import { PageHeader } from '../components/page-header.tsx'
 import { expenses } from '../data/demo-expenses.ts'
 
 export function AddExpense() {
@@ -15,9 +14,7 @@ export function AddExpense() {
 
   return (
     <>
-      <header>
-        <h2 className={styles.title}>Add Expense</h2>
-      </header>
+      <PageHeader title="Add Expense" />
       <main>
         <ExpenseForm onSubmit={handleSubmit} />
       </main>

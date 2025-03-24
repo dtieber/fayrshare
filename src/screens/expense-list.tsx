@@ -3,6 +3,7 @@ import styles from './expense-list.module.css'
 import { format } from 'date-fns'
 import { NavLink, useRouteLoaderData } from 'react-router-dom'
 
+import { PageHeader } from '../components/page-header.tsx'
 import { expenses } from '../data/demo-expenses.ts'
 import { Expense } from '../model/expense.ts'
 
@@ -10,12 +11,11 @@ export function ExpenseList() {
   const data = useRouteLoaderData('expenses') as { expenses: Expense[] }
   return (
     <>
-      <header>
-        <h2 className={styles.title}>Expense List</h2>
+      <PageHeader title="Expense List">
         <NavLink to="new" className={styles.addLink}>
           Add Expense
         </NavLink>
-      </header>
+      </PageHeader>
       <main>
         <ul className={styles.list}>
           {data.expenses.map((expense) => (

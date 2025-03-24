@@ -1,6 +1,0 @@
-@reference "../index.css";
-
-.title {
-    @apply text-2xl font-extrabold dark:text-white;
-    margin-bottom: 20px;
-}
