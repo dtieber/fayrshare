@@ -1,5 +1,14 @@
 @reference "../index.css";
 
+.members {
+    @apply max-w-md flex justify-start gap-2 flex-wrap;
+}
+.members__label {
+    @apply py-1 text-xs font-semibold text-gray-900;
+}
+.members__tag {
+    @apply bg-gray-100 rounded-sm px-2 py-1 text-xs font-semibold text-gray-600;
+}
 .list {
     @apply max-w-md divide-y divide-gray-200 dark:divide-gray-700;
 }

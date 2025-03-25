@@ -27,12 +27,14 @@ export const expenses: Expense[] = [expense1, expense2, expense3]
 export const expenseGroup1 = {
   id: 1,
   name: 'Vacation in Vancouver',
+  members: ['daniel@mail.com', 'nadine@mail.com', 'thomas@mail.com'],
   expenses,
 }
 
 export const expenseGroup2 = {
   id: 2,
   name: 'Upcoming trip to Sicily',
+  members: ['daniel@mail.com', 'nadine@mail.com'],
   expenses: [],
 }
 

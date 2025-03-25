@@ -17,6 +17,12 @@ export function ExpenseList() {
         </NavLink>
       </PageHeader>
       <PageContent>
+        <div className={styles.members}>
+          <span className={styles.members__label}>Members:</span>
+          {data.members.map((member) => (
+            <span className={styles.members__tag}>{member}</span>
+          ))}
+        </div>
         <ul className={styles.list}>
           {data.expenses.map((expense) => (
             <li key={expense.id} className={styles.listItem}>
