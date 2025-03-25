@@ -1,0 +1,8 @@
+@reference "../index.css";
+
+.main {
+    @apply bg-gray-100 dark:bg-slate-950;
+}
+.main__container {
+    @apply mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8;
+}

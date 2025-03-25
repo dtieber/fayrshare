@@ -10,7 +10,7 @@
     @apply flex items-center space-x-4 rtl:space-x-reverse;
 }
 .listItem__id {
-    @apply inline-flex items-center text-4xl font-semibold text-gray-100 dark:text-gray-900;
+    @apply inline-flex items-center text-4xl font-semibold text-gray-300 dark:text-slate-600;
 }
 .listItem__main {
     @apply flex-1 min-w-0;

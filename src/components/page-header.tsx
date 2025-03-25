@@ -7,9 +7,11 @@ export type PageHeaderProps = {
 
 export function PageHeader({ title, children }: PageHeaderProps) {
   return (
-    <header>
-      <h2 className={styles.title}>{title}</h2>
-      {children}
+    <header className={styles.header}>
+      <div className={styles.header__container}>
+        <h2 className={styles.title}>{title}</h2>
+        {children}
+      </div>
     </header>
   )
 }

@@ -1,0 +1,29 @@
+@reference "../index.css";
+
+.nav {
+    @apply bg-slate-950;
+}
+.nav__container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+.nav__flexbox {
+    @apply flex h-16 items-center justify-between;
+}
+.nav__flexbox-items {
+    @apply flex items-center;
+}
+.navItem__icon {
+    @apply shrink-0;
+}
+.navLink {
+    @apply md:block;
+}
+.navLink__container {
+    @apply ml-10 flex items-baseline space-x-4;
+}
+.navLink__container {
+    @apply ml-10 flex items-baseline space-x-4;
+}
+.navLink__link {
+    @apply rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white;
+}
