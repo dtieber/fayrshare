@@ -6,6 +6,7 @@ export const expense1: Expense = {
   title: 'Restaurant ABC',
   amount: 62.2,
   date: new Date(2025, 2, 3),
+  paidBy: 'daniel@mail.com',
 }
 
 export const expense2: Expense = {
@@ -13,6 +14,7 @@ export const expense2: Expense = {
   title: 'Gasoline',
   amount: 32.56,
   date: new Date(2025, 2, 4),
+  paidBy: 'nadine@mail.com',
 }
 
 export const expense3: Expense = {
@@ -20,6 +22,7 @@ export const expense3: Expense = {
   title: 'Entry park',
   amount: 75,
   date: new Date(2025, 2, 4),
+  paidBy: 'daniel@mail.com',
 }
 
 export const expenses: Expense[] = [expense1, expense2, expense3]

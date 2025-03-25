@@ -9,17 +9,20 @@ export type ExpenseFormData = {
   title: string
   amount: number
   date: Date
+  paidBy: string
 }
 
 export type ExpenseFormProps = {
   expense?: Expense
+  members: string[]
   onSubmit: (data: ExpenseFormData) => void
 }
 
-export function ExpenseForm({ expense, onSubmit }: ExpenseFormProps) {
+export function ExpenseForm({ members, expense, onSubmit }: ExpenseFormProps) {
   const [title, setTitle] = useState<string>(expense?.title || '')
   const [amount, setAmount] = useState<string>(expense?.amount.toFixed(2) || '')
   const [date, setDate] = useState<Date>(expense?.date || new Date())
+  const [paidBy, setPaidBy] = useState<string>(expense?.paidBy || '')
 
   const [titleValid, setTitleValid] = useState(true)
   const [amountValid, setAmountValid] = useState(true)
@@ -42,6 +45,11 @@ export function ExpenseForm({ expense, onSubmit }: ExpenseFormProps) {
     const newDate = isValid(value) ? new Date(value) : new Date()
     setDateValid(true)
     setDate(newDate)
+  }
+
+  function handlePaidByChanged(e: React.ChangeEvent<HTMLSelectElement>) {
+    const value = e.target.value
+    setPaidBy(value)
   }
 
   function validateForm(): ExpenseFormData | null {
@@ -70,6 +78,7 @@ export function ExpenseForm({ expense, onSubmit }: ExpenseFormProps) {
       title: `${title}`,
       amount: parsedAmount,
       date,
+      paidBy,
     }
   }
 
@@ -110,6 +119,18 @@ export function ExpenseForm({ expense, onSubmit }: ExpenseFormProps) {
             onChange={handleDateChanged}
             value={format(date, 'yyyy-MM-dd')}
           />
+        </div>
+        <div className={styles.set}>
+          <label htmlFor="paidBy" className={styles.set_label}>
+            Paid by
+          </label>
+          <select className={styles.set_input} onChange={handlePaidByChanged}>
+            {members.map((member) => (
+              <option key={member} value={member} selected={member === paidBy}>
+                {member}
+              </option>
+            ))}
+          </select>
         </div>
         <button className={styles.submit}>Submit</button>
       </form>

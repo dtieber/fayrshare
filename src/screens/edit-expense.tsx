@@ -30,7 +30,7 @@ export function EditExpense() {
     <>
       <PageHeader title={`Edit Expense (${expense.id})`} />
       <PageContent>
-        <ExpenseForm expense={expense} onSubmit={handleSubmit} />
+        <ExpenseForm members={expenseGroup.members} expense={expense} onSubmit={handleSubmit} />
       </PageContent>
     </>
   )

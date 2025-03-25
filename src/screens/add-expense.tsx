@@ -20,7 +20,7 @@ export function AddExpense() {
     <>
       <PageHeader title="Add Expense" />
       <PageContent>
-        <ExpenseForm onSubmit={handleSubmit} />
+        <ExpenseForm members={expenseGroup.members} onSubmit={handleSubmit} />
       </PageContent>
     </>
   )
