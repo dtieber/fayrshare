@@ -19,8 +19,10 @@ export function ExpenseList() {
       <PageContent>
         <div className={styles.members}>
           <span className={styles.members__label}>Members:</span>
-          {data.members.map((member) => (
-            <span className={styles.members__tag}>{member}</span>
+          {members.map((member) => (
+            <span key={member} className={styles.members__tag}>
+              {member}
+            </span>
           ))}
         </div>
         <ul className={styles.list}>
