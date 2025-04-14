@@ -31,8 +31,17 @@
     @apply inline-flex items-center text-base font-semibold text-gray-900 dark:text-white;
 }
 .addLink{
-    @apply font-medium text-gray-800 dark:text-white hover:underline
+    @apply pr-4 font-medium text-gray-800 dark:text-white hover:underline
 }
 .backLink{
     @apply font-medium text-gray-800 dark:text-white hover:underline
+}
+@utility add-member {
+    @apply w-30 focus:outline-none border-b-1 font-semibold text-xs text-gray-600 px-2 py-1
+}
+.addMember__input {
+    @apply add-member border-gray-900;
+}
+.addMember__input--invalid {
+    @apply add-member border-red-800 dark:border-red-500;
 }
