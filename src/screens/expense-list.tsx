@@ -4,6 +4,7 @@ import { format } from 'date-fns'
 import { useState } from 'react'
 import { NavLink, useRouteLoaderData } from 'react-router-dom'
 
+import { Members } from '../components/members.tsx'
 import { PageContent } from '../components/page-content.tsx'
 import { PageHeader } from '../components/page-header.tsx'
 import { ExpenseGroup } from '../model/expense-group.ts'
@@ -11,27 +12,9 @@ import { ExpenseGroup } from '../model/expense-group.ts'
 export function ExpenseList() {
   const data = useRouteLoaderData('expenses') as ExpenseGroup
   const [members, setMembers] = useState<string[]>(data.members)
-  const [emailEntered, setEmailEntered] = useState<string>('')
-  const [emailValid, setEmailValid] = useState(true)
 
-  function handleEmailKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    setEmailValid(true)
-
-    if (e.key !== 'Enter') {
-      return
-    }
-
-    if (!emailEntered.includes('@') || members.includes(emailEntered)) {
-      setEmailValid(false)
-      return
-    }
-
-    setMembers((prevMembers) => [...prevMembers, emailEntered])
-    setEmailEntered('')
-  }
-
-  function handleEmailEntered(e: React.ChangeEvent<HTMLInputElement>) {
-    setEmailEntered(e.currentTarget.value)
+  function handleMemberAdded(member: string): void {
+    setMembers((prevMembers) => [...prevMembers, member])
   }
 
   return (
@@ -42,24 +25,7 @@ export function ExpenseList() {
         </NavLink>
       </PageHeader>
       <PageContent>
-        <div className={styles.members}>
-          <span className={styles.members__label}>Members:</span>
-          {members.map((member) => (
-            <span key={member} className={styles.members__tag}>
-              {member}
-            </span>
-          ))}
-          <div className={styles.addMember}>
-            <input
-              name="addMember"
-              id="addMember"
-              onChange={handleEmailEntered}
-              onKeyDown={handleEmailKeyDown}
-              value={emailEntered}
-              className={emailValid ? styles.addMember__input : styles['addMember__input--invalid']}
-            />
-          </div>
-        </div>
+        <Members members={members} onMemberAdded={handleMemberAdded} />
         <ul className={styles.list}>
           {data.expenses.map((expense) => (
             <li key={expense.id} className={styles.listItem}>
