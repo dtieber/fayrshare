@@ -31,12 +31,19 @@ export function Members({ members, onMembersChanged }: MembersProps) {
     setEmailEntered('')
   }
 
+  function handleRemove(member: string) {
+    onMembersChanged(members.filter((m) => m !== member))
+  }
+
   return (
     <div className={styles.members}>
       <span className={styles.members__label}>Members:</span>
       {members.map((member) => (
         <span key={member} className={styles.members__tag}>
           {member}
+          <button onClick={() => handleRemove(member)} className={styles.members__remove}>
+            x
+          </button>
         </span>
       ))}
       <div className={styles.addMember}>

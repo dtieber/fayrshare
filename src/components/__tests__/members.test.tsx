@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
 import { Members } from '../members'
@@ -18,8 +18,8 @@ describe('<Members>', () => {
 
     render(<Members members={['daniel@mail.com']} onMembersChanged={memberChanged} />)
     const input = screen.getByLabelText('member-input')
-    fireEvent.input(input, {target: {value: 'nadine@mail.com'}})
-    fireEvent.keyDown(input, {key: 'Enter'})
+    fireEvent.input(input, { target: { value: 'nadine@mail.com' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
 
     expect(memberChanged).toHaveBeenCalledWith(['daniel@mail.com', 'nadine@mail.com'])
   })
@@ -29,8 +29,8 @@ describe('<Members>', () => {
 
     render(<Members members={['daniel@mail.com']} onMembersChanged={memberChanged} />)
     const input = screen.getByLabelText('member-input')
-    fireEvent.input(input, {target: {value: 'daniel@mail.com'}})
-    fireEvent.keyDown(input, {key: 'Enter'})
+    fireEvent.input(input, { target: { value: 'daniel@mail.com' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
 
     expect(memberChanged).not.toHaveBeenCalled()
   })
@@ -44,5 +44,16 @@ describe('<Members>', () => {
     fireEvent.keyDown(input, { key: 'Enter' })
 
     expect(memberChanged).not.toHaveBeenCalled()
+  })
+
+  it('should fire event when with updated members array when member gets removed', () => {
+    const memberChanged = vi.fn()
+
+    render(<Members members={['daniel@mail.com', 'nadine@mail.com']} onMembersChanged={memberChanged} />)
+    const tag = screen.getByText(/^daniel@mail.com/)
+    const remove = within(tag).getByText('x')
+    fireEvent.click(remove)
+
+    expect(memberChanged).toHaveBeenCalledWith(['nadine@mail.com'])
   })
 })
