@@ -4,10 +4,10 @@ import { useState } from 'react'
 
 type MembersProps = {
   members: string[]
-  onMemberAdded: (member: string) => void
+  onMembersChanged: (members: string[]) => void
 }
 
-export function Members({ members, onMemberAdded }: MembersProps) {
+export function Members({ members, onMembersChanged }: MembersProps) {
   const [emailEntered, setEmailEntered] = useState<string>('')
   const [emailValid, setEmailValid] = useState(true)
 
@@ -27,7 +27,7 @@ export function Members({ members, onMemberAdded }: MembersProps) {
       return
     }
 
-    onMemberAdded(emailEntered)
+    onMembersChanged([...members, emailEntered])
     setEmailEntered('')
   }
 

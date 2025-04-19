@@ -13,8 +13,8 @@ export function ExpenseList() {
   const data = useRouteLoaderData('expenses') as ExpenseGroup
   const [members, setMembers] = useState<string[]>(data.members)
 
-  function handleMemberAdded(member: string): void {
-    setMembers((prevMembers) => [...prevMembers, member])
+  function handleMembersChanged(members: string[]): void {
+    setMembers(members)
   }
 
   return (
@@ -25,7 +25,7 @@ export function ExpenseList() {
         </NavLink>
       </PageHeader>
       <PageContent>
-        <Members members={members} onMemberAdded={handleMemberAdded} />
+        <Members members={members} onMembersChanged={handleMembersChanged} />
         <ul className={styles.list}>
           {data.expenses.map((expense) => (
             <li key={expense.id} className={styles.listItem}>

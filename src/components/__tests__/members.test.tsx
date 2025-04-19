@@ -7,21 +7,20 @@ describe('<Members>', () => {
   it('should display member tags', () => {
     const members = ['nadine@mail.com', 'daniel@mail.com']
 
-    render(<Members members={members} onMemberAdded={(_) => {}} />)
+    render(<Members members={members} onMembersChanged={(_) => {}} />)
 
     expect(screen.queryByText('nadine@mail.com')).toBeTruthy()
     expect(screen.queryByText('daniel@mail.com')).toBeTruthy()
   })
 
-  it('should fire event when member gets added', () => {
-    const memberAdded = vi.fn()
-    const newMember = 'nadine@mail.com'
+  it('should fire event when with updated members array when member gets added', () => {
+    const memberChanged = vi.fn()
 
-    render(<Members members={[]} onMemberAdded={memberAdded} />)
+    render(<Members members={['daniel@mail.com']} onMembersChanged={memberChanged} />)
     const input = screen.getByLabelText('member-input')
-    fireEvent.input(input, {target: {value: `${newMember}`}})
+    fireEvent.input(input, {target: {value: 'nadine@mail.com'}})
     fireEvent.keyDown(input, {key: 'Enter'})
 
-    expect(memberAdded).toHaveBeenCalledWith('nadine@mail.com')
+    expect(memberChanged).toHaveBeenCalledWith(['daniel@mail.com', 'nadine@mail.com'])
   })
 })
