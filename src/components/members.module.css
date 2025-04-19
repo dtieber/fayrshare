@@ -10,7 +10,7 @@
     @apply bg-white rounded-sm px-2 py-1 text-xs font-semibold text-gray-600;
 }
 @utility add-member {
-    @apply w-30 focus:outline-none border-b-1 font-semibold text-xs text-gray-600 px-2 py-1
+    @apply w-30 focus:outline-none border-b-1 font-semibold text-xs text-gray-600 px-2 py-1;
 }
 .addMember__input {
     @apply add-member border-gray-900;
