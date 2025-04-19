@@ -23,4 +23,26 @@ describe('<Members>', () => {
 
     expect(memberChanged).toHaveBeenCalledWith(['daniel@mail.com', 'nadine@mail.com'])
   })
+
+  it('should prevent duplicate members', () => {
+    const memberChanged = vi.fn()
+
+    render(<Members members={['daniel@mail.com']} onMembersChanged={memberChanged} />)
+    const input = screen.getByLabelText('member-input')
+    fireEvent.input(input, {target: {value: 'daniel@mail.com'}})
+    fireEvent.keyDown(input, {key: 'Enter'})
+
+    expect(memberChanged).not.toHaveBeenCalled()
+  })
+
+  it('should prevent invalid email addresses', () => {
+    const memberChanged = vi.fn()
+
+    render(<Members members={['daniel@mail.com']} onMembersChanged={memberChanged} />)
+    const input = screen.getByLabelText('member-input')
+    fireEvent.input(input, { target: { value: 'INVALID-FORMAT' } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+
+    expect(memberChanged).not.toHaveBeenCalled()
+  })
 })
