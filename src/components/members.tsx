@@ -43,6 +43,7 @@ export function Members({ members, onMemberAdded }: MembersProps) {
         <input
           name="addMember"
           id="addMember"
+          aria-label="member-input"
           onChange={handleEmailEntered}
           onKeyDown={handleEmailKeyDown}
           value={emailEntered}
