@@ -75,6 +75,7 @@ export function ExpenseForm({ members, expense, onSubmit }: ExpenseFormProps) {
     }
 
     return {
+      ...(expense?.id ? { id: expense.id } : {}),
       title: `${title}`,
       amount: parsedAmount,
       date,
