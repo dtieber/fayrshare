@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@tailwindcss/vite':
-        specifier: ^4.0.15
-        version: 4.0.15(vite@6.2.2(jiti@2.4.2)(lightningcss@1.29.2))
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
@@ -23,13 +20,13 @@ importers:
       react-router-dom:
         specifier: '6'
         version: 6.30.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      tailwindcss:
-        specifier: ^4.0.15
-        version: 4.0.15
     devDependencies:
       '@eslint/js':
         specifier: ^9.21.0
         version: 9.22.0
+      '@tailwindcss/vite':
+        specifier: ^4.0.15
+        version: 4.0.15(vite@6.2.2(jiti@2.4.2)(lightningcss@1.29.2))
       '@testing-library/jest-dom':
         specifier: ^6.6.3
         version: 6.6.3
@@ -72,6 +69,9 @@ importers:
       prettier:
         specifier: 3.5.3
         version: 3.5.3
+      tailwindcss:
+        specifier: ^4.0.15
+        version: 4.0.15
       typescript:
         specifier: ~5.7.2
         version: 5.7.3
