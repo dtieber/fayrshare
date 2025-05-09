@@ -100,13 +100,27 @@ export function ExpenseForm({ members, expense, onSubmit }: ExpenseFormProps) {
           <label htmlFor="title" className={titleValid ? styles.set__label : styles['set__label--invalid']}>
             Title
           </label>
-          <input name="title" id="title" className={styles.set__input} onChange={handleTitleChange} value={title} />
+          <input
+            name="title"
+            id="title"
+            aria-label="title-input"
+            className={styles.set__input}
+            onChange={handleTitleChange}
+            value={title}
+          />
         </div>
         <div className={styles.set}>
           <label htmlFor="amount" className={amountValid ? styles.set__label : styles['set__label--invalid']}>
             Amount
           </label>
-          <input name="amount" id="amount" className={styles.set__input} onChange={handleAmountChange} value={amount} />
+          <input
+            name="amount"
+            id="amount"
+            aria-label="amount-input"
+            className={styles.set__input}
+            onChange={handleAmountChange}
+            value={amount}
+          />
         </div>
         <div className={styles.set}>
           <label htmlFor="date" className={dateValid ? styles.set__label : styles['set__label--invalid']}>
@@ -116,6 +130,7 @@ export function ExpenseForm({ members, expense, onSubmit }: ExpenseFormProps) {
             name="date"
             id="date"
             type="date"
+            aria-label="date-input"
             className={styles.set__input}
             onChange={handleDateChanged}
             value={format(date, 'yyyy-MM-dd')}
@@ -125,7 +140,7 @@ export function ExpenseForm({ members, expense, onSubmit }: ExpenseFormProps) {
           <label htmlFor="paidBy" className={styles.set__label}>
             Paid by
           </label>
-          <select className={styles.set__input} onChange={handlePaidByChanged}>
+          <select aria-label="paidBy-input" className={styles.set__input} onChange={handlePaidByChanged}>
             {members.map((member) => (
               <option key={member} value={member} selected={member === paidBy}>
                 {member}
