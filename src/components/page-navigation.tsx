@@ -10,7 +10,7 @@ export function PageNavigation() {
           <div className={styles.nav__flexbox}>
             <div className={styles['nav__flexbox-items']}>
               <div className={styles.navItem__icon}>
-                <NavLink to="/">
+                <NavLink to="/" aria-label="Home">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
