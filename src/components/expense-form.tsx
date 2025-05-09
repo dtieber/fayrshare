@@ -97,19 +97,19 @@ export function ExpenseForm({ members, expense, onSubmit }: ExpenseFormProps) {
     <>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.set}>
-          <label htmlFor="title" className={titleValid ? styles.set__label : styles['set_label--invalid']}>
+          <label htmlFor="title" className={titleValid ? styles.set__label : styles['set__label--invalid']}>
             Title
           </label>
           <input name="title" id="title" className={styles.set__input} onChange={handleTitleChange} value={title} />
         </div>
         <div className={styles.set}>
-          <label htmlFor="amount" className={amountValid ? styles.set__label : styles['set_label--invalid']}>
+          <label htmlFor="amount" className={amountValid ? styles.set__label : styles['set__label--invalid']}>
             Amount
           </label>
           <input name="amount" id="amount" className={styles.set__input} onChange={handleAmountChange} value={amount} />
         </div>
         <div className={styles.set}>
-          <label htmlFor="date" className={dateValid ? styles.set__label : styles['set_label--invalid']}>
+          <label htmlFor="date" className={dateValid ? styles.set__label : styles['set__label--invalid']}>
             Date
           </label>
           <input
